@@ -1,5 +1,12 @@
 <?php get_header(); ?>
 
+
+Prova front-page
+<p><a href="/testingsw/nodo">Nodi</a> - <a href="/testingsw/nodo/vercelli">Vercelli</a></p>
+<p><a href="/testingsw/percorso/">Percorsi</a></p>
+<p><a href="/testingsw/itinerario/">Itinerari</a></p>
+<hr />
+
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 <!-- Display the Title as a link to the Post's permalink. -->

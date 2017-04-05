@@ -12,3 +12,37 @@ Text Domain: twentythirteen
 
 This theme, like WordPress, is licensed under the GPL.
 */
+
+body {
+    background-color: white;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+    font-family: verdana;
+    font-size: 24px;
+}
+
+h3 {
+    color: black;
+    text-align: center;
+    font-family: verdana;
+    font-size: 18px;
+}
+
+
+p {
+    font-family: verdana;
+    font-size: 16px;
+}
+
+li {
+    font-family: verdana;
+    font-size: 16px;
+}
+
+.footer {
+    font-family: verdana;
+    font-size: 12px;
+}

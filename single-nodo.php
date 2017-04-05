@@ -1,4 +1,4 @@
-<?php
+<?php get_header();
 /**
  * The Template for displaying all single posts
  *
@@ -32,4 +32,7 @@
 				<?php endif; ?>
                 </div>
 
-            <?php endwhile; ?>
+            <?php endwhile; 
+            get_footer();
+?>
+            
