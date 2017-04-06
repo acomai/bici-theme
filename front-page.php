@@ -2,9 +2,9 @@
 
 
 Prova front-page
-<p><a href="/testingsw/nodo">Nodi</a> - <a href="/testingsw/nodo/vercelli">Vercelli</a></p>
-<p><a href="/testingsw/percorso/">Percorsi</a></p>
-<p><a href="/testingsw/itinerario/">Itinerari</a></p>
+<p><a href="/testingsw/nodi">Nodi</a> - <a href="/testingsw/nodi/vercelli">Vercelli</a></p>
+<p><a href="/testingsw/percorsi/">Percorsi</a></p>
+<p><a href="/testingsw/itinerari/">Itinerari</a></p>
 <hr />
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

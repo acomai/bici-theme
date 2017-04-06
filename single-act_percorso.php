@@ -36,7 +36,7 @@
 						*/
 
 						$nodi = get_posts(array(
-							'post_type' => 'nodo',
+							'post_type' => 'act_nodo',
 							'meta_query' => array(
 								array(
 									'key' => 'nodo_percorsi', // name of custom field

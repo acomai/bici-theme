@@ -12,11 +12,23 @@
                 <?php  the_content();  ?>
 				<p>altitudine: <?php the_field('altitudine'); ?> metri s.l.m.</p>
 				<p>provincia: <?php the_field('provincia'); ?></p>
-				<p>download: <?php 
-				$file = get_field('mappa');
-				if( $file ): ?>
-					<a href="<?php the_field('mappa'); ?>" >Mappa</a>
-				<?php endif;?></p>
+				<p>
+				<?php 
+
+				$image = get_field('mappa');
+				$width = 400;
+				$height = 400;
+				
+				
+				if( !empty($image) ): ?>
+
+					<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" />
+
+				<?php endif; ?>
+				</p>
+				<p>previsioni meteo: </p>
+				<p>Wikipedia: </p>
+				<p>Centro servizi: </p>
                 </div>
 		
 				<div class="percorsi">
@@ -31,6 +43,14 @@
 						</ul>
 				<?php endif; ?>
                 </div>
+                <hr />
+                <div class="strutture">
+				<h3>Strutture turistico-alberghiere di <?php the_title(); ?></h3>
+				</div>
+				<hr />
+                <div class="eventi">
+				<h3>Prossimi eventi a <?php the_title(); ?></h3>
+				</div>
 
             <?php endwhile; 
             get_footer();
