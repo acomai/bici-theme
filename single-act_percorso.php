@@ -1,4 +1,6 @@
 <?php
+get_header();
+get_sidebar();
 /**
  * The Template for displaying all single posts
  *
@@ -63,4 +65,6 @@
                 
                 </div>
 
-            <?php endwhile; ?>
+            <?php endwhile; 
+            get_footer();
+            ?>

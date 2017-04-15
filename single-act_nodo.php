@@ -1,5 +1,5 @@
 <?php get_header();
-get_sidebar('primary');
+get_sidebar();
 /**
  * The Template for displaying all single posts
  *
@@ -17,8 +17,8 @@ get_sidebar('primary');
 				<?php 
 
 				$image = get_field('mappa_nodo');
-				$width = 400;
-				$height = 400;
+				$width = 300;
+				$height = 300;
 				
 				
 				if( !empty($image) ): ?>
@@ -30,8 +30,8 @@ get_sidebar('primary');
 				 				<?php 
 
 				$image = get_field('mappa_nodo_in_area');
-				$width = 400;
-				$height = 400;
+				$width = 300;
+				$height = 300;
 				
 				
 				if( !empty($image) ): ?>
@@ -40,7 +40,6 @@ get_sidebar('primary');
 
 				<?php endif; ?>
 				</p>
-				<p>Wikipedia: </p>
 				<p>Visita il <a href="<?php echo get_field('centro_servizi'); ?>">Centro servizi</a> di <?php echo get_the_title( $p->ID ); ?></p>
                 </div>
                 <hr />
@@ -52,7 +51,7 @@ get_sidebar('primary');
 					if( $posts ): ?>
 						<ul>
 						<?php foreach( $posts as $p ): // variable must NOT be called $post (IMPORTANT) ?>
-	   						 <li><a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a></li>
+	   						 <li><a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a> - km: <?php echo the_field('km', $p->ID); ?></li>
 						<?php endforeach; ?>
 						</ul>
 				<?php endif; ?>
@@ -60,7 +59,7 @@ get_sidebar('primary');
                 <hr />
                 <div class="strutture">
 				<h3>Strutture turistico-alberghiere di <?php the_title(); ?></h3>
-				Link a TripAdvisor - Link a Albergabici - Link a Airbnb
+				<p>Link a TripAdvisor - Link a Albergabici - Link a Airbnb</p>
 				</div>
 				<hr />
                 <div class="eventi">
@@ -68,7 +67,7 @@ get_sidebar('primary');
 				</div>
 
             <?php endwhile; 
-
+			
             get_footer();
 ?>
             
