@@ -10,14 +10,16 @@ get_header();
                 <div class="single-page-post-heading">
                 <h1><?php the_title(); ?></h1>
                 </div>
+                <p>Tipo percorso: <strong><?php the_field('tipo_percorso'); ?></strong> - 
+                Lunghezza: <strong><?php the_field('km'); ?> km</strong> - 
+                Dislivello in salita: <strong><?php the_field('dislivello_salita'); ?> metri</strong></p>
+                <hr />
                 <div class="content-here">
                 <?php  the_content();  ?>
-                <p>Lunghezza in Km: <?php the_field('km'); ?></p>
-				<p>% sterrato: <?php the_field('sterrato_perc'); ?></p>
-				<p>Dislivello salita in metri: <?php the_field('dislivello_salita'); ?></p>
-				<p>Tipo percorso: <?php the_field('tipo_percorso'); ?></p>
+				<hr />
+				<p>Sterrato: <strong><?php the_field('sterrato_perc'); ?> %</strong> - 
+				Fontanelle: <strong><?php the_field('fontanelle'); ?></strong></p>
 				<p>Segnaletica: <?php the_field('segnaletica'); ?></p>
-				<p>Fontanelle: <?php the_field('fontanelle'); ?></p>
 				<p>Mappa: <?php the_field('mappa'); ?></p>
 				<!--  
 				
@@ -37,7 +39,7 @@ get_header();
 				-->
                 </div>
                 
-                <h3>Città nodo collegate</h3>
+                <h3>Centri collegati</h3>
 						<?php 
 
 						/*

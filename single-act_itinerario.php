@@ -1,4 +1,4 @@
-<?php
+<?php get_header();
 /**
  * The Template for displaying all single posts
  *
@@ -7,60 +7,35 @@
                 <div class="main-post-div">
                 <div class="single-page-post-heading">
                 <h1><?php the_title(); ?></h1>
-                </div>
+                </div>               
+                <hr />
                 <div class="content-here">
                 <?php  the_content();  ?>
-                <p>Lunghezza in Km: <?php the_field('km'); ?></p>
-				<p>% sterrato: <?php the_field('sterrato_perc'); ?></p>
-				<p>Dislivello salita in metri: <?php the_field('dislivello_salita'); ?></p>
-				<p>
+                </div>
+                <hr />
+		
+				<div class="percorsi">
+				<h3>Percorsi di <?php the_title(); ?></h3>
 				<?php 
-
-				$image = get_field('mappa');
-				
-				if( !empty($image) ): ?>
-
-					<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-
-
-				</p>
+					$posts = get_field('percorsi_itinerario');
+					$tot = 0;
+					if( $posts ): ?>
+						<ul>
+						<?php foreach( $posts as $p ): // variable must NOT be called $post (IMPORTANT) 
+						
+						// totalizzazione km dei percorsi compresi nell'itinerario
+						$tot = $tot + get_field('km', $p->ID);
+					?>
+	   						 <li><a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a> - km: <?php echo the_field('km', $p->ID); ?></li>
+						<?php endforeach; ?>
+						</ul>
+						<p>totale km: <?php echo $tot; ?></p>
 				<?php endif; ?>
                 </div>
-                
-                <h2>Città nodo collegate</h2>
-						<?php 
+                <hr />
 
-						/*
-						*  Query posts for a relationship value.
-						*  This method uses the meta_query LIKE to match the string "123" to the database value a:1:{i:0;s:3:"123";} (serialized array)
-						*/
-
-						$nodi = get_posts(array(
-							'post_type' => 'nodo',
-							'meta_query' => array(
-								array(
-									'key' => 'nodo_percorsi', // name of custom field
-									'value' => '"' . get_the_ID() . '"', // matches exaclty "123", not just 123. This prevents a match for "1234"
-									'compare' => 'LIKE'
-								)
-							)
-						));
-
-						?>
-						<?php if( $nodi ): ?>
-							<ul>
-							<?php foreach( $nodi as $nodo ): ?>
-								
-								<li>
-									<a href="<?php echo get_permalink( $nodo->ID ); ?>">
-										
-										<?php echo get_the_title( $nodo->ID ); ?>
-									</a> 
-								</li>
-							<?php endforeach; ?>
-							</ul>
-						<?php endif; ?>
-                
-                </div>
-
-            <?php endwhile; ?>
+            <?php endwhile; 
+			get_sidebar();
+            get_footer();
+?>
+            

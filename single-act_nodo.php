@@ -9,8 +9,8 @@ get_sidebar();
                 <div class="single-page-post-heading">
                 <h1><?php the_title(); ?></h1>
                 </div>
-                <p>provincia: <?php the_field('provincia'); ?> - 
-                altitudine: <?php the_field('altitudine'); ?> metri s.l.m. - abitanti: <?php the_field('abitanti'); ?> - <a href="<?php echo get_field('centro_servizi'); ?>">Centro servizi</a></p>
+                <p>provincia: <strong><?php the_field('provincia'); ?></strong> - 
+                altitudine: <strong><?php the_field('altitudine'); ?></strong> metri s.l.m. - abitanti: <strong><?php the_field('abitanti'); ?></strong> - <a href="<?php echo get_field('centro_servizi'); ?>">Centro servizi</a></p>
                 <!--  <p>Visita il <a href="<?php echo get_field('centro_servizi'); ?>">Centro servizi</a> di <?php echo get_the_title( $p->ID ); ?></p>-->
                 
                 <hr />
