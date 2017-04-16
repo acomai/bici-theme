@@ -1,6 +1,6 @@
 <?php
 get_header();
-get_sidebar();
+
 /**
  * The Template for displaying all single posts
  *
@@ -15,9 +15,14 @@ get_sidebar();
                 <p>Lunghezza in Km: <?php the_field('km'); ?></p>
 				<p>% sterrato: <?php the_field('sterrato_perc'); ?></p>
 				<p>Dislivello salita in metri: <?php the_field('dislivello_salita'); ?></p>
-				<p>
+				<p>Tipo percorso: <?php the_field('tipo_percorso'); ?></p>
+				<p>Segnaletica: <?php the_field('segnaletica'); ?></p>
+				<p>Fontanelle: <?php the_field('fontanelle'); ?></p>
+				<p>Mappa: <?php the_field('mappa'); ?></p>
+				<!--  
+				
 				<?php 
-
+				/*
 				$image = get_field('mappa');
 				
 				if( !empty($image) ): ?>
@@ -26,10 +31,13 @@ get_sidebar();
 
 
 				</p>
-				<?php endif; ?>
+				<?php endif; 
+				*/
+				?>
+				-->
                 </div>
                 
-                <h2>Città nodo collegate</h2>
+                <h3>Città nodo collegate</h3>
 						<?php 
 
 						/*
@@ -66,5 +74,6 @@ get_sidebar();
                 </div>
 
             <?php endwhile; 
+            get_sidebar();
             get_footer();
             ?>

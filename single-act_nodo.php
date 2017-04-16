@@ -9,10 +9,14 @@ get_sidebar();
                 <div class="single-page-post-heading">
                 <h1><?php the_title(); ?></h1>
                 </div>
+                <p>provincia: <?php the_field('provincia'); ?> - 
+                altitudine: <?php the_field('altitudine'); ?> metri s.l.m. - abitanti: <?php the_field('abitanti'); ?> - <a href="<?php echo get_field('centro_servizi'); ?>">Centro servizi</a></p>
+                <!--  <p>Visita il <a href="<?php echo get_field('centro_servizi'); ?>">Centro servizi</a> di <?php echo get_the_title( $p->ID ); ?></p>-->
+                
+                <hr />
                 <div class="content-here">
                 <?php  the_content();  ?>
-				<p>altitudine: <?php the_field('altitudine'); ?> metri s.l.m.</p>
-				<p>provincia: <?php the_field('provincia'); ?></p>
+				
 				<p> mappa città: 
 				<?php 
 
@@ -40,7 +44,6 @@ get_sidebar();
 
 				<?php endif; ?>
 				</p>
-				<p>Visita il <a href="<?php echo get_field('centro_servizi'); ?>">Centro servizi</a> di <?php echo get_the_title( $p->ID ); ?></p>
                 </div>
                 <hr />
 		
@@ -57,9 +60,18 @@ get_sidebar();
 				<?php endif; ?>
                 </div>
                 <hr />
+                <div class="meteo">
+				<p><?php the_field('meteo'); ?></p>
+                </div>
+                <hr />
+                <div class="arrivare">
+				<h3>Arrivare a <?php the_title(); ?></h3>
+				<p>Info su treni e bus: <?php the_field('arrivare'); ?></p>
+                </div>
+                <hr />
                 <div class="strutture">
-				<h3>Strutture turistico-alberghiere di <?php the_title(); ?></h3>
-				<p>Link a TripAdvisor - Link a Albergabici - Link a Airbnb</p>
+				<h3>Mangiare e dormire a <?php the_title(); ?></h3>
+				<p>Link a TripAdvisor - Link a Albergabici - Link a Airbnb: <?php the_field('mangiare_dormire'); ?></p>
 				</div>
 				<hr />
                 <div class="eventi">
