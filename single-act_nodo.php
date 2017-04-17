@@ -1,5 +1,5 @@
 <?php get_header();
-get_sidebar();
+
 /**
  * The Template for displaying all single posts
  *
@@ -66,12 +66,12 @@ get_sidebar();
                 <hr />
                 <div class="arrivare">
 				<h3>Arrivare a <?php the_title(); ?></h3>
-				<p>Info su treni e bus: <?php the_field('arrivare'); ?></p>
+				<p><?php the_field('arrivare'); ?></p>
                 </div>
                 <hr />
                 <div class="strutture">
 				<h3>Mangiare e dormire a <?php the_title(); ?></h3>
-				<p>Link a TripAdvisor - Link a Albergabici - Link a Airbnb: <?php the_field('mangiare_dormire'); ?></p>
+				<p><?php the_field('mangiare_dormire'); ?></p>
 				</div>
 				<hr />
                 <div class="eventi">
@@ -79,7 +79,7 @@ get_sidebar();
 				</div>
 
             <?php endwhile; 
-			
+            get_sidebar();
             get_footer();
 ?>
             

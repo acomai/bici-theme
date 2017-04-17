@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<?php get_sidebar(); ?>
+
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 <!-- Display the Title as a link to the Post's permalink. -->
@@ -38,4 +38,5 @@
  	<!-- REALLY stop The Loop. -->
  <?php endif; ?>
 
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

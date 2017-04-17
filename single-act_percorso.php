@@ -38,7 +38,10 @@ get_header();
 				?>
 				-->
                 </div>
+                <hr />
                 
+                <!-- Elenco dei nodi compresi in questo percorso -->
+                <div class="nodo_percorsi">
                 <h3>Centri collegati</h3>
 						<?php 
 
@@ -72,7 +75,45 @@ get_header();
 							<?php endforeach; ?>
 							</ul>
 						<?php endif; ?>
-                
+                	</div>
+                	<hr />
+                	
+                	<!-- Elenco degli itinerari che comprendono questo percorso -->
+            		<div class="percorsi_itinerario">
+               		 <h3>Itinerari che comprendono il percorso</h3>
+						<?php 
+
+						/*
+						*  Query posts for a relationship value.
+						*  This method uses the meta_query LIKE to match the string "123" to the database value a:1:{i:0;s:3:"123";} (serialized array)
+						*/
+
+						$itinerari = get_posts(array(
+							'post_type' => 'act_itinerario',
+							'meta_query' => array(
+								array(
+									'key' => 'percorsi_itinerario', // name of custom field
+									'value' => '"' . get_the_ID() . '"', // matches exaclty "123", not just 123. This prevents a match for "1234"
+									'compare' => 'LIKE'
+								)
+							)
+						));
+
+						?>
+						<?php if( $itinerari): ?>
+							<ul>
+							<?php foreach( $itinerari as $itinerario ): ?>
+								
+								<li>
+									<a href="<?php echo get_permalink( $itinerario->ID ); ?>">
+										
+										<?php echo get_the_title( $itinerario->ID ); ?>
+									</a> 
+								</li>
+							<?php endforeach; ?>
+							</ul>
+						<?php endif; ?>
+                	</div>
                 </div>
 
             <?php endwhile; 
