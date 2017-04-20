@@ -12,7 +12,9 @@ get_header();
                 </div>
                 <p>Tipo percorso: <strong><?php the_field('tipo_percorso'); ?></strong> - 
                 Lunghezza: <strong><?php the_field('km'); ?> km</strong> - 
-                Dislivello in salita: <strong><?php the_field('dislivello_salita'); ?> metri</strong></p>
+                Dislivello in salita: <strong><?php the_field('dislivello_salita'); ?> metri</strong> -
+                Dislivello in discesa: <strong><?php the_field('dislivello_discesa'); ?> metri</strong>
+                </p>
                 <hr />
                 <div class="content-here">
                 <?php  the_content();  ?>

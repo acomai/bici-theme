@@ -17,32 +17,8 @@
                 <div class="content-here">
                 <?php  the_content();  ?>
 				
-				<p> mappa città: 
-				<?php 
-
-				$image = get_field('mappa_nodo');
-				$width = 300;
-				$height = 300;
-				
-				
-				if( !empty($image) ): ?>
-
-					<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" />
-
-				<?php endif; ?>
-				 mappa nell'area: 
-				 				<?php 
-
-				$image = get_field('mappa_nodo_in_area');
-				$width = 300;
-				$height = 300;
-				
-				
-				if( !empty($image) ): ?>
-
-					<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" />
-
-				<?php endif; ?>
+				<p>
+				<?php the_field('mappa_nodo'); ?>
 				</p>
                 </div>
                 <hr />

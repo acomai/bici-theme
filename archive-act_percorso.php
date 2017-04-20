@@ -11,7 +11,7 @@
 		<?php if( is_singular() ) : ?>
 			<?php the_content() ?>
 		<?php else : ?>
-			<?php the_excerpt() ?>
+			<?php the_excerpt() ?> - km: <strong><?php the_field('km'); ?></strong>
 		<?php endif ?>
 
 

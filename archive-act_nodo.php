@@ -4,7 +4,7 @@
 
 <!-- Display the Title as a link to the Post's permalink. -->
 
- 	<h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+ 	<h3><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 
 
  	<!-- Display the Post's content in a div box. -->
