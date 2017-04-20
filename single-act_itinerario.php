@@ -1,20 +1,28 @@
-<?php get_header();
+<?php
 /**
- * The Template for displaying all single posts
+ * The template for displaying all single posts (custom act_itinerario).
  *
- <?php /* The loop */ ?>
-            <?php while ( have_posts() ) : the_post(); ?>
-                <div class="main-post-div">
-                <div class="single-page-post-heading">
+ * @package Sydney
+ */
+
+get_header(); ?>
+
+
+	<div id="primary" class="content-area col-md-9">
+		<main id="main" class="post-wrap" role="main">
+
+		<?php while ( have_posts() ) : the_post(); ?>
+
+			<div class="single-page-post-heading">
                 <h1><?php the_title(); ?></h1>
                 </div>               
                 <hr />
                 <div class="content-here">
                 <?php  the_content();  ?>
-                </div>
-                <hr />
-		
-				<div class="percorsi">
+            </div>
+            <hr />
+
+			<div class="percorsi">
 				<h3>Percorsi di <?php the_title(); ?></h3>
 				<?php 
 					$posts = get_field('percorsi_itinerario');
@@ -31,11 +39,14 @@
 						</ul>
 						<p>totale km: <?php echo $tot; ?></p>
 				<?php endif; ?>
-                </div>
-                <hr />
+            </div>
 
-            <?php endwhile; 
-			get_sidebar();
-            get_footer();
+		<?php endwhile; // end of the loop. ?>
+
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+<?php 
+	get_sidebar();
 ?>
-            
+<?php get_footer(); ?>

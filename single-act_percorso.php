@@ -6,7 +6,7 @@ get_header();
  *
  <?php /* The loop */ ?>
             <?php while ( have_posts() ) : the_post(); ?>
-                <div class="main-post-div">
+                <div class="main-post-div  col-md-9">
                 <div class="single-page-post-heading">
                 <h1><?php the_title(); ?></h1>
                 </div>

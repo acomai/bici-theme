@@ -5,7 +5,8 @@
  *
  <?php /* The loop */ ?>
             <?php while ( have_posts() ) : the_post(); ?>
-                <div class="main-post-div">
+                <div class="content-area col-md-9">
+                 <!--  -->
                 <div class="single-page-post-heading">
                 <h1><?php the_title(); ?></h1>
                 </div>
@@ -53,7 +54,7 @@
                 <div class="eventi">
 				<h3>Prossimi eventi a <?php the_title(); ?></h3>
 				</div>
-
+			</div>
             <?php endwhile; 
             get_sidebar();
             get_footer();
