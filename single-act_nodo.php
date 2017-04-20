@@ -43,7 +43,14 @@
                 <hr />
                 <div class="arrivare">
 				<h3>Arrivare a <?php the_title(); ?></h3>
-				<p><?php the_field('arrivare'); ?></p>
+				<p><?php 
+				// test per provare una limitazione di funzionalità in base al ruolo utente
+				if( current_user_can('edit_posts') ) {
+					// true if user can edit posts
+					the_field('arrivare');
+				}
+				
+				 ?></p>
                 </div>
                 <hr />
                 <div class="strutture">
