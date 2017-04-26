@@ -5,7 +5,7 @@
  *
  <?php /* The loop */ ?>
             <?php while ( have_posts() ) : the_post(); ?>
-                <div class="content-area col-md-9">
+                <div class="content-area col-md-10">
                  <!--  -->
                 <div class="single-page-post-heading">
                 <h1><?php the_title(); ?></h1>
@@ -13,7 +13,14 @@
                 <p>provincia: <strong><?php the_field('provincia'); ?></strong> - 
                 altitudine: <strong><?php the_field('altitudine'); ?></strong> metri s.l.m. - abitanti: <strong><?php the_field('abitanti'); ?></strong> - <a href="<?php echo get_field('centro_servizi'); ?>">Centro servizi</a></p>
                 <!--  <p>Visita il <a href="<?php echo get_field('centro_servizi'); ?>">Centro servizi</a> di <?php echo get_the_title( $p->ID ); ?></p>-->
-                
+                <?php
+                	// mostra immagine rappresentativa del nodo, se esiste
+                	if ( has_post_thumbnail() ) {
+						the_post_thumbnail();
+					} 
+					
+				?>
+				
                 <hr />
                 <div class="content-here">
                 <?php  the_content();  ?>
