@@ -1,5 +1,19 @@
+
+<style>
+	img {
+		float:right;
+		margin: 5px;
+	}
+	
+	.clearfix::after {
+	    content: "";
+	    clear: both;
+	    display: table;
+	}
+</style>
+
 <?php get_header(); ?>
-<div class="col-md-9">
+<div class="col-md-10">
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 <!-- Display the Title as a link to the Post's permalink. -->
@@ -11,10 +25,14 @@
 		<?php if( is_singular() ) : ?>
 			<?php the_content() ?>
 		<?php else : ?>
+			<div class="clearfix">
+			<?php the_post_thumbnail('thumbnail'); ?>
 			<?php the_excerpt() ?>
+			</div>
+	
 		<?php endif ?>
 
-
+ 
 
  	<!-- Display a comma separated list of the Post's Categories. 
 
