@@ -30,7 +30,8 @@
 				</p>
                 </div>
                 <hr />
-		
+				
+				<!-- Link ai percorsi del nodo -->
 				<div class="percorsi">
 				<h3>Percorsi di <?php the_title(); ?></h3>
 				<?php 
@@ -39,6 +40,21 @@
 						<ul>
 						<?php foreach( $posts as $p ): // variable must NOT be called $post (IMPORTANT) ?>
 	   						 <li><a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a> - km: <?php echo the_field('km', $p->ID); ?></li>
+						<?php endforeach; ?>
+						</ul>
+				<?php endif; ?>
+                </div>
+                <hr />
+                
+                <!-- Link ai servizi acquistabili come 'product' tramite Woocommerce -->				
+                <div class="servizi">
+				<h3>Servizi a <?php the_title(); ?></h3>
+				<?php 
+					$posts = get_field('nodo_servizi');
+					if( $posts ): ?>
+						<ul>
+						<?php foreach( $posts as $p ): // variable must NOT be called $post (IMPORTANT) ?>
+	   						 <li><a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a> <?php echo the_field('km', $p->ID); ?></li>
 						<?php endforeach; ?>
 						</ul>
 				<?php endif; ?>
