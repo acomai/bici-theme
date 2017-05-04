@@ -1,3 +1,23 @@
+<style>
+
+	.dati-base{
+  		font-size: 1.15em;
+	}
+
+	img {
+		float:left;
+		margin: 5px;
+	}
+
+	
+	.clearfix::after {
+	    content: "";
+	    clear: both;
+	    display: table;    
+	}
+
+</style>
+
 <?php get_header();
 
 /**
@@ -10,9 +30,7 @@
                 <div class="single-page-post-heading">
                 <h1><?php the_title(); ?></h1>
                 </div>
-                <p>provincia: <strong><?php the_field('provincia'); ?></strong> - 
-                altitudine: <strong><?php the_field('altitudine'); ?></strong> metri s.l.m. - abitanti: <strong><?php the_field('abitanti'); ?></strong> - <a href="<?php echo get_field('centro_servizi'); ?>">Centro servizi</a></p>
-                <!--  <p>Visita il <a href="<?php echo get_field('centro_servizi'); ?>">Centro servizi</a> di <?php echo get_the_title( $p->ID ); ?></p>-->
+                <div class="clearfix">
                 <?php
                 	// mostra immagine rappresentativa del nodo, se esiste
                 	if ( has_post_thumbnail() ) {
@@ -20,19 +38,28 @@
 					} 
 					
 				?>
-				
+				<span class="dati-base">Provincia: <strong><?php the_field('provincia'); ?></strong> - 
+                Altitudine: <strong><?php the_field('altitudine'); ?></strong> metri s.l.m. 
+                - Abitanti: <strong><?php the_field('abitanti'); ?></strong> - 
+                <a href="<?php echo get_field('centro_servizi'); ?>">Centro servizi</a></span>
                 <hr />
                 <div class="content-here">
                 <?php  the_content();  ?>
-				
-				<p>
+				</div>
+
+				</div>
+				<hr />
+				<div class="logistica col-md-6" >
 				<?php the_field('mappa_nodo'); ?>
-				</p>
-                </div>
+				</div>
+				<div class="logistica2 col-md-4" >
+				<p>del testo</p>
+				</div>
+                
                 <hr />
 				
 				<!-- Link ai percorsi del nodo -->
-				<div class="percorsi">
+				<div class="percorsi col-md-10">
 				<h3>Percorsi di <?php the_title(); ?></h3>
 				<?php 
 					$posts = get_field('nodo_percorsi');

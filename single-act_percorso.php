@@ -16,6 +16,19 @@ get_header();
                 Dislivello in discesa: <strong><?php the_field('dislivello_discesa'); ?> metri</strong>
                 </p>
                 <hr />
+                <h3>Tracciato GPS scaricabile</h3>
+                <?php
+                // limitazione di funzionalità per il file gps
+                
+				if( is_user_logged_in() ) {
+					// true if user can edit posts
+					the_field('gps');
+				}else {
+					echo 'solo gli utenti registrati possono scaricare i tracciati gpx';
+					}
+				
+				?>
+				<hr />
                 <div class="content-here">
                 <?php  the_content();  ?>
 				<hr />
