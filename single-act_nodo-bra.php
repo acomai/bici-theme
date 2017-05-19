@@ -3,27 +3,40 @@
 	.flex-container {
 	    display: -webkit-flex;
     	display: flex;
-    	background-color: lightgrey;
+    	/* background-color: lightgrey; */
     	flex-direction: row;
     	flex-wrap: wrap;
+    	align-content: space-around;
 	}
 	
-	.inner-flex-container {
-	    display: -webkit-flex;
-    	display: flex;
-    	background-color: lightyellow;
-    	flex-direction: row;
-    	flex-wrap: wrap;
-    	self-align: stretch;
+	.eventi{
+  		display: flex;
+  		justify-content: space-between;
+	}
+	
+	.in-eventi{
+  		height: 40px;
+  		width: 60px;
+  		align-self: flex-end;
+  		border-bottom: 2px solid #dd3333;
+  		border-right: 2px solid #dd3333;
+	}
+	
+	.dati-base, .strutture, .desc, .arrivare, .servizi, .percorsi, .eventi, .img-block {
+		padding: 5px 0px 0px 5px;
 	}
 
 	.dati-base{
   		font-size: 1.15em;
-  		/* margin: auto; */
-  		flex: 0 1 100%;
   		height: 40px;
-  		margin: 20px;
-  		padding: 5px 20px;
+	}
+	
+	.dati-base, .strutture, .wrap-text-image {
+		flex: 0 1 100%;
+	}
+	
+	.desc, .servizi, .img-block, .eventi, .servizi, .arrivare, .percorsi {
+  		flex: 0 1 50%;
 	}
 	
 	.img{
@@ -31,41 +44,50 @@
   		height: 300px;
 	}
 	
-	.desc{
-  		flex: 0 1 50%;
+	.img-foto{
+  		width: 400px;
+  		height: 300px;
+  		float: left;
+  		margin-right: 1em;
 	}
 	
-	.arrivare{
+	.img-block{
+		justify-content: center;
+	}
+	
+	.percorsi, .mappa, .meteo, .desc, .wrap-text-image {
   		background-color: lightyellow;
   		border-style: solid;
     	border-width: medium;
-  		border-color: lightgrey;
-  		flex: 1 1 50%;
-  		padding: 5px 20px;
+  		border-color: #f3f3f3;
 	}
 	
-	.percorsi{
-  		background-color: lightyellow;
-  		flex: 1 1 50%;
-  		padding: 5px 20px;
+	.eventi, .foto, .arrivare, .servizi {
+  		background-color: #f3f3f3;
+  		border-style: solid;
+    	border-width: medium;
+  		border-color: #f3f3f3;
 	}
 	
-	.eventi{
-  		background-color: lightpink;
-  		flex: 0 1 50%;
-  		padding: 5px 20px;
+	@media all and (max-device-width: 480px) and (orientation: portrait) {
+    
+	    .flex-container {
+		    display: -webkit-flex;
+	    	display: flex;
+	    	flex-direction: column;
+	    	flex-wrap: wrap;
+	    	align-content: center;
+		}
+		
+		.dati-base, .strutture, .wrap-text-image {
+		flex: 0 1 100%;
 	}
 	
-	.servizi{
-  		flex: 1 1 30%;
-  		padding: 5px 20px;
+	.desc, .servizi, .img-block, .eventi, .servizi, .arrivare, .percorsi {
+  		flex: 0 1 100%;
 	}
-	
-	.strutture{
-  		flex: 1 1 100%;
-  		background-color: lightblue;
-  		padding: 5px 20px;
-	}
+		
+	}	
 
 </style>
 
@@ -105,26 +127,33 @@
 	                
 	                <div class="eventi">
 						<h3>Prossimi eventi a <?php the_title(); ?></h3>
+						
+						<div class="in-eventi">
+			
+						</div>
+					
 					</div>
 	                
-                	<div class="img">
-		                <?php
-		                	// mostra immagine rappresentativa del nodo, se esiste
-		                	if ( has_post_thumbnail() ) {
-								the_post_thumbnail();
-							} 
-							
-						?>
+                	<div class="wrap-text-image">
+	                	<div class="img-foto">
+			                <?php
+			                	// mostra immagine rappresentativa del nodo, se esiste
+			                	if ( has_post_thumbnail() ) {
+									the_post_thumbnail();
+								} 
+								
+							?>
+						</div>
+						<div class="content-here desc">
+		                	<?php  the_content();  ?>
+						</div>
 					</div>
-				
-                <hr />
-	                <div class="content-here desc">
-	                <?php  the_content();  ?>
-					</div>
+
+	                
 
 				
 				<hr />
-					<div>
+					<div class="img-block mappa">
 						<div class="img" >
 						<?php the_field('mappa_nodo'); ?>
 						</div>
@@ -149,24 +178,26 @@
 				
                 
                 <!-- Link ai servizi acquistabili come 'product' tramite Woocommerce -->				
-	                <div class="inner-flex-container">
-		                <div class="servizi">
-							<h3>Servizi a <?php the_title(); ?></h3>
-							<?php 
-								$posts = get_field('nodo_servizi');
-								if( $posts ): ?>
-									<ul>
-									<?php foreach( $posts as $p ): // variable must NOT be called $post (IMPORTANT) ?>
-				   						 <li><a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a> <?php echo the_field('km', $p->ID); ?></li>
-									<?php endforeach; ?>
-									</ul>
-							<?php endif; ?>
-		                </div>
 	                
+	                <div class="servizi">
+						<h3>Servizi a <?php the_title(); ?></h3>
+						<?php 
+							$posts = get_field('nodo_servizi');
+							if( $posts ): ?>
+								<ul>
+								<?php foreach( $posts as $p ): // variable must NOT be called $post (IMPORTANT) ?>
+			   						 <li><a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a> <?php echo the_field('km', $p->ID); ?></li>
+								<?php endforeach; ?>
+								</ul>
+						<?php endif; ?>
+	                </div>
+                
+	                <div class="img-block meteo">
 		                <div class="img">
 							<p><?php the_field('meteo'); ?></p>
 		                </div>
 	                </div>
+	                
                 </div>
                 
 			</div>
