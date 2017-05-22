@@ -7,15 +7,29 @@
     	flex-wrap: wrap;
 	}
 	
-	.desc {
+	.dati-base, .centri, .foto, .itinerari, .img-box {
+		padding: 30px 0px 0px 20px;
+		display: flex;
+  		justify-content: space-between;
+	}
+	
+	.desc, .foto, .vuoto {
 		flex: 0 1 100%;
+	}
+	
+	.desc, .foto, .content-here {
+		background-color: #f3f3f3;
+	}
+	
+	.vuoto {
+		height: 20px;
 	}
 	
 	.img-box, .dati-base {
 		flex: 0 1 50%;
 	}
 	
-	.centri, .itinerari, .foto {
+	.centri, .itinerari {
 		flex: 0 1 50%;
 	}
 	
@@ -25,6 +39,14 @@
 	
 	.desc-title {
 		text-align: center;
+	}
+	
+	.end-box{
+  		height: 40px;
+  		width: 120px;
+  		align-self: flex-end;
+  		border-bottom: 2px solid #dd3333;
+  		border-right: 2px solid #dd3333;
 	}
 	
 	@media all and (max-device-width: 480px) and (orientation: portrait) {
@@ -60,96 +82,117 @@ get_header();
 	                <div class="flex-container">
 	                
 	                	<div class="img-box">
-	                		<?php the_field('mappa'); ?>
+	                		<div>
+	                			<?php the_field('mappa'); ?>
+	                		</div>
+	                		<div class="end-box"></div>
 	                	</div>
 	                	
 	                	<div class="dati-base">
+	                		<div>
 	                		<h3>Dati:</h3>
-	                		<p>Tipo percorso: <strong><?php the_field('tipo_percorso'); ?></strong></p>
-			                <p>Lunghezza: <strong><?php the_field('km'); ?> km</strong></p> 
-			                <p>Dislivello in salita: <strong><?php the_field('dislivello_salita'); ?> metri</strong></p>
-			                <p>Dislivello in discesa: <strong><?php the_field('dislivello_discesa'); ?> metri</strong></p>
-			                <p>Sterrato: <strong><?php the_field('sterrato_perc'); ?> %</strong></p> 
-							<p>Fontanelle: <strong><?php the_field('fontanelle'); ?></strong></p>
-							<p>Segnaletica: <?php the_field('segnaletica'); ?></p>
+		                		<p>Tipo percorso: <strong><?php the_field('tipo_percorso'); ?></strong></p>
+				                <p>Lunghezza: <strong><?php the_field('km'); ?> km</strong></p> 
+				                <p>Dislivello in salita: <strong><?php the_field('dislivello_salita'); ?> metri</strong></p>
+				                <p>Dislivello in discesa: <strong><?php the_field('dislivello_discesa'); ?> metri</strong></p>
+				                <p>Sterrato: <strong><?php the_field('sterrato_perc'); ?> %</strong></p> 
+								<p>Fontanelle: <strong><?php the_field('fontanelle'); ?></strong></p>
+								<p>Segnaletica: <?php the_field('segnaletica'); ?></p>
+							</div>
+							<div class="end-box"></div>
 	                	</div>
+	                	
+	                <div class="vuoto">
+						<p>  </p>
+					</div>
+	                	
+	                	<div class="foto">
+							<div>
+								<h3>Immagini del percorso</h3>
+							</div>
+							<div class="end-box"></div>
+						</div>
 
 						<div class="centri">
-							<h3>Centri collegati</h3>
-							<?php 
-	
-							/*
-							*  Query posts for a relationship value.
-							*  This method uses the meta_query LIKE to match the string "123" to the database value a:1:{i:0;s:3:"123";} (serialized array)
-							*/
-	
-							$nodi = get_posts(array(
-								'post_type' => 'act_nodo',
-								'meta_query' => array(
-									array(
-										'key' => 'nodo_percorsi', // name of custom field
-										'value' => '"' . get_the_ID() . '"', // matches exaclty "123", not just 123. This prevents a match for "1234"
-										'compare' => 'LIKE'
-									)
-								)
-							));
-	
-							?>
-							<?php if( $nodi ): ?>
-								<ul>
-								<?php foreach( $nodi as $nodo ): ?>
-									
-									<li>
-										<a href="<?php echo get_permalink( $nodo->ID ); ?>">
-											
-											<?php echo get_the_title( $nodo->ID ); ?>
-										</a> 
-									</li>
-								<?php endforeach; ?>
-								</ul>
-							<?php endif; ?>
-						<!--  </div>
-						
-						<div class="itinerari">  -->
-							<hr />
-							<h3>Itinerari che includono il percorso</h3>
-							<?php 
-	
-							/*
-							*  Query posts for a relationship value.
-							*  This method uses the meta_query LIKE to match the string "123" to the database value a:1:{i:0;s:3:"123";} (serialized array)
-							*/
-	
-								$itinerari = get_posts(array(
-									'post_type' => 'act_itinerario',
+							<div>
+								<h3>Centri collegati</h3>
+								<?php 
+		
+								/*
+								*  Query posts for a relationship value.
+								*  This method uses the meta_query LIKE to match the string "123" to the database value a:1:{i:0;s:3:"123";} (serialized array)
+								*/
+		
+								$nodi = get_posts(array(
+									'post_type' => 'act_nodo',
 									'meta_query' => array(
 										array(
-											'key' => 'percorsi_itinerario', // name of custom field
+											'key' => 'nodo_percorsi', // name of custom field
 											'value' => '"' . get_the_ID() . '"', // matches exaclty "123", not just 123. This prevents a match for "1234"
 											'compare' => 'LIKE'
 										)
 									)
 								));
-	
-							?>
-							<?php if( $itinerari): ?>
-								<ul>
-								<?php foreach( $itinerari as $itinerario ): ?>
-									
-									<li>
-										<a href="<?php echo get_permalink( $itinerario->ID ); ?>">
-											
-											<?php echo get_the_title( $itinerario->ID ); ?>
-										</a> 
-									</li>
-								<?php endforeach; ?>
-								</ul>
-							<?php endif; ?>
+		
+								?>
+								<?php if( $nodi ): ?>
+									<ul>
+									<?php foreach( $nodi as $nodo ): ?>
+										
+										<li>
+											<a href="<?php echo get_permalink( $nodo->ID ); ?>">
+												
+												<?php echo get_the_title( $nodo->ID ); ?>
+											</a> 
+										</li>
+									<?php endforeach; ?>
+									</ul>
+								<?php endif; ?>
+							</div>
+							<div class="end-box"></div>
 						</div>
 						
-						<div class="foto">
-							<hr />
-							<h3>Immagini del percorso</h3>
+						<div class="itinerari">
+							<div>
+								<h3>Itinerari che includono il percorso</h3>
+								<?php 
+		
+								/*
+								*  Query posts for a relationship value.
+								*  This method uses the meta_query LIKE to match the string "123" to the database value a:1:{i:0;s:3:"123";} (serialized array)
+								*/
+		
+									$itinerari = get_posts(array(
+										'post_type' => 'act_itinerario',
+										'meta_query' => array(
+											array(
+												'key' => 'percorsi_itinerario', // name of custom field
+												'value' => '"' . get_the_ID() . '"', // matches exaclty "123", not just 123. This prevents a match for "1234"
+												'compare' => 'LIKE'
+											)
+										)
+									));
+		
+								?>
+								<?php if( $itinerari): ?>
+									<ul>
+									<?php foreach( $itinerari as $itinerario ): ?>
+										
+										<li>
+											<a href="<?php echo get_permalink( $itinerario->ID ); ?>">
+												
+												<?php echo get_the_title( $itinerario->ID ); ?>
+											</a> 
+										</li>
+									<?php endforeach; ?>
+									</ul>
+								<?php endif; ?>
+							</div>
+							<div class="end-box"></div>
+						</div>
+						
+						<div class="vuoto">
+							<p>  </p>
 						</div>
 
 

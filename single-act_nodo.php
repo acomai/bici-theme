@@ -11,7 +11,7 @@
     	flex-wrap: wrap;
 	}
 	
-	.dati-base, .strutture, .arrivare, .servizi, .percorsi, .eventi, .img-block, .wrap-text-image {
+	.dati-base, .strutture, .arrivare, .servizi, .percorsi, .itinerari, .img-block, .wrap-text-image {
 		padding: 30px 0px 0px 20px;
 		display: flex;
   		justify-content: space-between;
@@ -37,7 +37,7 @@
 		height: 20px;
 	}
 	
-	.servizi, .img-block, .eventi, .arrivare, .percorsi {
+	.servizi, .img-block, .itinerari, .arrivare, .percorsi {
   		flex: 0 1 50%;
 	}
 	
@@ -121,7 +121,11 @@
 								if( $posts ): ?>
 									<ul>
 									<?php foreach( $posts as $p ): // variable must NOT be called $post (IMPORTANT) ?>
-				   						 <li><a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a> - km: <?php echo the_field('km', $p->ID); ?></li>
+				   						 <li>
+					   						 <a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a>
+					   						  - km: <?php echo the_field('km', $p->ID); ?> - 
+					   						  <?php  echo the_field('tipo_percorso', $p->ID); ?>
+				   						 </li>
 									<?php endforeach; ?>
 									</ul>
 							<?php endif; ?>
@@ -131,10 +135,20 @@
 						
 	                </div>
 	                
-	                <div class="eventi">
+	                <div class="itinerari">
 						<div>
-							<h3><i class="fa fa-eye"></i> Prossimi eventi a <?php the_title(); ?></h3>
+							<h3><i class="fa fa-map"></i> Itinerari di più giorni</h3>
+							<?php 
+								$posts = get_field('nodo_itinerari');
+								if( $posts ): ?>
+									<ul>
+									<?php foreach( $posts as $p ): // variable must NOT be called $post (IMPORTANT) ?>
+				   						 <li><a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a></li>
+									<?php endforeach; ?>
+									</ul>
+							<?php endif; ?>
 						</div>
+						
 						<div class="end-box"></div>
 						
 					</div>
