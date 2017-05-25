@@ -92,7 +92,8 @@ get_header();
 	                		<div>
 	                		<h3>Dati:</h3>
 		                		<p>Tipo percorso: <strong><?php the_field('tipo_percorso'); ?></strong></p>
-				                <p>Lunghezza: <strong><?php the_field('km'); ?> km</strong></p> 
+				                <p>Lunghezza: <strong><?php the_field('km'); ?> km</strong></p>
+				                <p>Difficoltà: <strong><?php the_field('difficolta'); ?></strong></p>
 				                <p>Dislivello in salita: <strong><?php the_field('dislivello_salita'); ?> metri</strong></p>
 				                <p>Dislivello in discesa: <strong><?php the_field('dislivello_discesa'); ?> metri</strong></p>
 				                <p>Sterrato: <strong><?php the_field('sterrato_perc'); ?> %</strong></p> 
