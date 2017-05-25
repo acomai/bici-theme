@@ -11,7 +11,7 @@
     	flex-wrap: wrap;
 	}
 	
-	.percorsi, .centri, .img-block, {
+	.percorsi, .centri, .img-block, .wrap-text-image, .itinerari {
 		padding: 30px 0px 0px 20px;
 		display: flex;
   		justify-content: space-between;
@@ -27,8 +27,12 @@
 
 	
 	
-	.img-block, .centri, .percorsi {
+	.img-block, .centri, .percorsi, .itinerari {
   		flex: 0 1 50%;
+	}
+	
+	.wrap-text-image, .vuoto {
+  		flex: 0 1 100%;
 	}
 	
 	.img{
@@ -49,6 +53,10 @@
 	
 	.dati-base, .wrap-text-image, .strutture {
   		 background-color: #f3f3f3; 
+	}
+	
+	.vuoto {
+		height: 20px;
 	}
 	
 	.title {
@@ -91,33 +99,16 @@
                 </div>
                 <div class="flex-container">
 		                
-	                
-	                <!-- Link ai percorsi dell'area -->
-					<div class="percorsi">
-						<div>
-							<h3><i class="fa fa-map-signs"></i> Percorsi di <?php the_title(); ?></h3>
-							<?php 
-								$posts = get_field('area_percorsi');
-								if( $posts ): ?>
-									<ul>
-									<?php foreach( $posts as $p ): // variable must NOT be called $post (IMPORTANT) ?>
-				   						 <li>
-					   						 <a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a>
-					   						  - km: <?php echo the_field('km', $p->ID); ?> - 
-					   						  <?php  echo the_field('tipo_percorso', $p->ID); ?>
-				   						 </li>
-									<?php endforeach; ?>
-									</ul>
-							<?php endif; ?>
+	                <div class="img-block mappa">
+						<div class="img" >
+							<?php the_field('mappa'); ?>
 						</div>
-						
-						<div class="end-box"></div>
-						
-	                </div>
-	                
-	                <div class="centri">
+						<!--   <div class="end-box"></div> -->
+					</div>
+					
+					<div class="centri">
 						<div>
-							<h3><i class="fa fa-map"></i> Centri</h3>
+							<h3><i class="fa fa-dot-circle-o"></i> Centri</h3>
 							<?php 
 								$posts = get_field('area_centri');
 								if( $posts ): ?>
@@ -132,6 +123,7 @@
 						<div class="end-box"></div>
 						
 					</div>
+
 					
 					<div class="vuoto">
 						<p>  </p>
@@ -143,17 +135,54 @@
 						</div>
 						<div class="end-box"></div>
 					</div>
+					
+						                <!-- Link ai percorsi dell'area -->
+					<div class="percorsi">
+						<div>
+							<h3><i class="fa fa-map-signs"></i> Percorsi</h3>
+							<?php 
+								$posts = get_field('area_percorsi');
+								if( $posts ): ?>
+									<ul>
+									<?php foreach( $posts as $p ): // variable must NOT be called $post (IMPORTANT) ?>
+				   						 <li>
+					   						 <a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a>
+					   						  - km: <?php echo the_field('km', $p->ID); ?> - 
+					   						  <?php  echo the_field('tipo_percorso', $p->ID); ?> - 
+					   						  <?php  echo the_field('difficolta', $p->ID); ?>
+				   						 </li>
+									<?php endforeach; ?>
+									</ul>
+							<?php endif; ?>
+						</div>
+						
+						<div class="end-box"></div>
+						
+	                </div>
+	                
+	                <div class="itinerari">
+						<div>
+							<h3><i class="fa fa-map"></i> Itinerari di più giorni</h3>
+							<?php 
+								$posts = get_field('area_itinerari');
+								if( $posts ): ?>
+									<ul>
+									<?php foreach( $posts as $p ): // variable must NOT be called $post (IMPORTANT) ?>
+				   						 <li><a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a></li>
+									<?php endforeach; ?>
+									</ul>
+							<?php endif; ?>
+						</div>
+						
+						<div class="end-box"></div>
+						
+					</div>
 			
 	                
-	                <div class="img-block mappa">
-						<div class="img" >
-							<?php the_field('mappa'); ?>
-						</div>
-						<!--   <div class="end-box"></div> -->
-					</div>
+	                
 					
 	                
-
+				</div>
                 
 			</div>
             <?php endwhile; 
