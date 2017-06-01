@@ -34,7 +34,21 @@ get_header(); ?>
 						// totalizzazione km dei percorsi compresi nell'itinerario
 						$tot = $tot + get_field('km', $p->ID);
 					?>
-	   						 <li><a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a> - km: <?php echo the_field('km', $p->ID); ?></li>
+	   						 <li>
+		   						 <?php 
+						   						  // visualizza icone appropriate al tipo_percorso
+						   						  $tipo = get_field('tipo_percorso', $p->ID);
+						   						  if ( $tipo == 'bici' ) {
+						   						  	echo '<i class="fa fa-bicycle fa-2x"></i>';
+						   						  } else {
+						   						  	echo '<i class="fa fa-blind fa-2x"></i>';
+						   						  }
+					   						  ?>
+		   						 <a href="<?php echo get_permalink( $p->ID ); ?>">
+		   						 <?php echo get_the_title( $p->ID ); ?></a> 
+		   						 - km: <?php echo the_field('km', $p->ID); ?> -
+		   						 <?php  echo the_field('difficolta', $p->ID); ?>
+	   						 </li>
 						<?php endforeach; ?>
 						</ul>
 						<p>totale km: <?php echo $tot; ?></p>

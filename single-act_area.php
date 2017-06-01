@@ -146,9 +146,18 @@
 									<ul>
 									<?php foreach( $posts as $p ): // variable must NOT be called $post (IMPORTANT) ?>
 				   						 <li>
+					   						 <?php 
+						   						  // test da implementare per visualizzare icone appropriate al tipo_percorso
+						   						  // ed alla difficoltà
+						   						  $tipo = get_field('tipo_percorso', $p->ID);
+						   						  if ( $tipo == 'bici' ) {
+						   						  	echo '<i class="fa fa-bicycle fa-2x"></i>';
+						   						  } else {
+						   						  	echo '<i class="fa fa-blind fa-2x"></i>';
+						   						  }
+					   						  ?>
 					   						 <a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a>
 					   						  - km: <?php echo the_field('km', $p->ID); ?> - 
-					   						  <?php  echo the_field('tipo_percorso', $p->ID); ?> - 
 					   						  <?php  echo the_field('difficolta', $p->ID); ?>
 				   						 </li>
 									<?php endforeach; ?>
