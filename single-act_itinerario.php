@@ -23,7 +23,7 @@ get_header(); ?>
             <hr />
 
 			<div class="percorsi">
-				<h3>Percorsi di <?php the_title(); ?></h3>
+				<h3><?php _e( 'Percorsi di ', 'sydney-child' );?> <?php the_title(); ?></h3>
 				<?php 
 					$posts = get_field('percorsi_itinerario');
 					$tot = 0;
@@ -51,7 +51,7 @@ get_header(); ?>
 	   						 </li>
 						<?php endforeach; ?>
 						</ul>
-						<p>totale km: <?php echo $tot; ?></p>
+						<p><?php _e( 'Totale', 'sydney-child' );?> km: <?php echo $tot; ?></p>
 				<?php endif; ?>
             </div>
 

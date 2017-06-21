@@ -90,15 +90,15 @@ get_header();
 	                	
 	                	<div class="dati-base">
 	                		<div>
-	                		<h3>Dati:</h3>
-		                		<p>Tipo percorso: <strong><?php the_field('tipo_percorso'); ?></strong></p>
-				                <p>Lunghezza: <strong><?php the_field('km'); ?> km</strong></p>
-				                <p>Difficoltà: <strong><?php the_field('difficolta'); ?></strong></p>
-				                <p>Dislivello in salita: <strong><?php the_field('dislivello_salita'); ?> metri</strong></p>
-				                <p>Dislivello in discesa: <strong><?php the_field('dislivello_discesa'); ?> metri</strong></p>
-				                <p>Sterrato: <strong><?php the_field('sterrato_perc'); ?> %</strong></p> 
-								<p>Fontanelle: <strong><?php the_field('fontanelle'); ?></strong></p>
-								<p>Segnaletica: <?php the_field('segnaletica'); ?></p>
+	                		<h3><?php _e( 'Dati', 'sydney-child' );?>:</h3>
+		                		<p><?php _e( 'Tipo percorso', 'sydney-child' );?>: <strong><?php the_field('tipo_percorso'); ?></strong></p>
+				                <p><?php _e( 'Lunghezza', 'sydney-child' );?>: <strong><?php the_field('km'); ?> km</strong></p>
+				                <p><?php _e( 'Difficoltà', 'sydney-child' );?>: <strong><?php the_field('difficolta'); ?></strong></p>
+				                <p><?php _e( 'Dislivello in salita', 'sydney-child' );?>: <strong><?php the_field('dislivello_salita'); ?> m</strong></p>
+				                <p><?php _e( 'Dislivello in discesa', 'sydney-child' );?>: <strong><?php the_field('dislivello_discesa'); ?> m</strong></p>
+				                <p><?php _e( 'Sterrato', 'sydney-child' );?>: <strong><?php the_field('sterrato_perc'); ?> %</strong></p> 
+								<p><?php _e( 'Fontanelle', 'sydney-child' );?>: <strong><?php the_field('fontanelle'); ?></strong></p>
+								<p><?php _e( 'Segnaletica', 'sydney-child' );?>: <strong><?php the_field('segnaletica'); ?></strong></p>
 							</div>
 							<div class="end-box"></div>
 	                	</div>
@@ -109,14 +109,14 @@ get_header();
 	                	
 	                	<div class="foto">
 							<div>
-								<h3>Immagini del percorso</h3>
+								<h3><?php _e( 'Immagini del percorso', 'sydney-child' );?></h3>
 							</div>
 							<div class="end-box"></div>
 						</div>
 
 						<div class="centri">
 							<div>
-								<h3>Centri collegati</h3>
+								<h3><?php _e( 'Centri collegati', 'sydney-child' );?></h3>
 								<?php 
 		
 								/*
@@ -155,7 +155,7 @@ get_header();
 						
 						<div class="itinerari">
 							<div>
-								<h3>Itinerari che includono il percorso</h3>
+								<h3><?php _e( 'Itinerari che includono il percorso', 'sydney-child' );?></h3>
 								<?php 
 		
 								/*
@@ -199,13 +199,13 @@ get_header();
 
 		                <div class="content-here">
 		                	<hr />
-		                	<h3 class="desc-title">Descrizione e tracciato</h3>
+		                	<h3 class="desc-title"><?php _e( 'Descrizione e tracciato', 'sydney-child' );?></h3>
 		                	<?php  the_content();  ?>
 						</div>
 
 		                <div>
 			               	<hr />
-			               	<h3>Tracciato GPS scaricabile</h3>
+			               	<h3><?php _e( 'Tracciato GPS scaricabile', 'sydney-child' );?></h3>
 			                <?php
 				                // limitazione di funzionalità per il file gps
 				                
@@ -213,7 +213,7 @@ get_header();
 									// true if user can edit posts
 									the_field('gps');
 								}else {
-									echo 'solo gli utenti registrati possono scaricare i tracciati gpx';
+									_e( 'solo gli utenti registrati possono scaricare i tracciati gpx', 'sydney-child' );
 									}
 							
 							?>

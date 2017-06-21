@@ -103,10 +103,10 @@
 		                <div class="dati-base">
 		                	<div>
 			                	<div>
-					                <p>Provincia: <strong><?php the_field('provincia'); ?></strong> - 
-					                Altitudine: <strong><?php the_field('altitudine'); ?></strong> metri s.l.m. 
-					                - Abitanti: <strong><?php the_field('abitanti'); ?></strong></p>
-					                <p><?php echo get_field('centro_servizi'); ?></p>
+					                <p><?php _e( 'Provincia', 'sydney-child' );?>: <strong><?php the_field('provincia'); ?></strong> - 
+					                <?php _e( 'Altitudine', 'sydney-child' );?>: <strong><?php the_field('altitudine'); ?></strong> m. 
+					                - <?php _e( 'Abitanti', 'sydney-child' );?> <strong><?php the_field('abitanti'); ?></strong></p>
+					                <p><?php _e( 'Informazioni turistiche', 'sydney-child' );?>: <?php echo get_field('centro_servizi'); ?></p>
 				                </div>
 			                </div>
 			                <div class="end-box"></div>
@@ -115,7 +115,7 @@
 	                <!-- Link ai percorsi del nodo -->
 					<div class="percorsi">
 						<div>
-							<h3><i class="fa fa-map-signs"></i> Percorsi di <?php the_title(); ?></h3>
+							<h3><i class="fa fa-map-signs"></i> <?php _e( 'Percorsi di ', 'sydney-child' );?> <?php the_title(); ?></h3>
 							<?php 
 								$posts = get_field('nodo_percorsi');
 								if( $posts ): ?>
@@ -126,7 +126,7 @@
 						   						  // test da implementare per visualizzare icone appropriate al tipo_percorso
 						   						  // ed alla difficoltà
 						   						  $tipo = get_field('tipo_percorso', $p->ID);
-						   						  if ( $tipo == 'bici' ) {
+						   						  if ( $tipo == 'bici' || $tipo == 'bike') {
 						   						  	echo '<i class="fa fa-bicycle fa-2x"></i>';
 						   						  } else {
 						   						  	echo '<i class="fa fa-blind fa-2x"></i>';
@@ -148,7 +148,7 @@
 	                
 	                <div class="itinerari">
 						<div>
-							<h3><i class="fa fa-map"></i> Itinerari di più giorni</h3>
+							<h3><i class="fa fa-map"></i> <?php _e( 'Itinerari di più giorni', 'sydney-child' );?></h3>
 							<?php 
 								$posts = get_field('nodo_itinerari');
 								if( $posts ): ?>
@@ -188,7 +188,7 @@
 				
 					<div class="arrivare">
 						<div>
-							<h3><i class="fa fa-bus"></i> Arrivare a <?php the_title(); ?></h3>
+							<h3><i class="fa fa-bus"></i> <?php _e( 'Arrivare a ', 'sydney-child' );?> <?php the_title(); ?></h3>
 							<p><?php 
 							// test per provare una limitazione di funzionalità in base al ruolo utente
 							if( current_user_can('edit_posts') ) {
@@ -215,7 +215,7 @@
 	                
 	                <div class="strutture">
 	                	<div>
-							<h3><i class="fa fa-bed"></i> <i class="fa fa-cutlery"></i> Mangiare e dormire a <?php the_title(); ?></h3>
+							<h3><i class="fa fa-bed"></i> <i class="fa fa-cutlery"></i> <?php _e( 'Mangiare e dormire a ', 'sydney-child' );?><?php the_title(); ?></h3>
 							<p><?php the_field('mangiare_dormire'); ?></p>
 						</div>
 						<div class="end-box"></div>
@@ -226,7 +226,7 @@
 	                
 	                <div class="servizi">
 						<div>
-							<h3><i class="fa fa-tags"></i> Servizi a <?php the_title(); ?></h3>
+							<h3><i class="fa fa-tags"></i> <?php _e( 'Servizi a ', 'sydney-child' );?> <?php the_title(); ?></h3>
 							<?php 
 								$posts = get_field('nodo_servizi');
 								if( $posts ): ?>

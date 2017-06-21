@@ -108,7 +108,7 @@
 					
 					<div class="centri">
 						<div>
-							<h3><i class="fa fa-dot-circle-o"></i> Centri</h3>
+							<h3><i class="fa fa-dot-circle-o"></i> <?php _e( 'Centri', 'sydney-child' );?></h3>
 							<?php 
 								$posts = get_field('area_centri');
 								if( $posts ): ?>
@@ -139,7 +139,7 @@
 						                <!-- Link ai percorsi dell'area -->
 					<div class="percorsi">
 						<div>
-							<h3><i class="fa fa-map-signs"></i> Percorsi</h3>
+							<h3><i class="fa fa-map-signs"></i> <?php _e( 'Percorsi', 'sydney-child' );?></h3>
 							<?php 
 								$posts = get_field('area_percorsi');
 								if( $posts ): ?>
@@ -150,7 +150,7 @@
 						   						  // test da implementare per visualizzare icone appropriate al tipo_percorso
 						   						  // ed alla difficoltà
 						   						  $tipo = get_field('tipo_percorso', $p->ID);
-						   						  if ( $tipo == 'bici' ) {
+						   						  if ( $tipo == 'bici' || $tipo == 'bike') {
 						   						  	echo '<i class="fa fa-bicycle fa-2x"></i>';
 						   						  } else {
 						   						  	echo '<i class="fa fa-blind fa-2x"></i>';
@@ -171,7 +171,7 @@
 	                
 	                <div class="itinerari">
 						<div>
-							<h3><i class="fa fa-map"></i> Itinerari di più giorni</h3>
+							<h3><i class="fa fa-map"></i> <?php _e( 'Itinerari', 'sydney-child' );?></h3>
 							<?php 
 								$posts = get_field('area_itinerari');
 								if( $posts ): ?>
