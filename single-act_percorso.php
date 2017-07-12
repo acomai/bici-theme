@@ -205,16 +205,28 @@ get_header();
 
 		                <div>
 			               	<hr />
-			               	<h3><?php _e( 'Tracciato GPS scaricabile', 'sydney-child' );?></h3>
+			               	<h3><?php _e( 'Tracciato', 'sydney-child' );?></h3>
 			                <?php
-				                // limitazione di funzionalità per il file gps
-				                
-								if( is_user_logged_in() ) {
-									// true if user can edit posts
-									the_field('gps');
-								}else {
-									_e( 'solo gli utenti registrati possono scaricare i tracciati gpx', 'sydney-child' );
-									}
+
+							// check if the repeater field has rows of data
+							if( have_rows('tracciato') ):
+							
+							 	// loop through the rows of data
+							    while ( have_rows('tracciato') ) : the_row();
+							
+							        // display a sub field value
+							        the_sub_field('step');
+							        echo " - ";
+							        the_sub_field('stepdesc');
+							        echo '<br />';
+							
+							    endwhile;
+							
+							else :
+							
+							    // no rows found
+							
+							endif;
 							
 							?>
                 		</div>
