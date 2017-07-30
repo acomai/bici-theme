@@ -33,6 +33,10 @@
 		flex: 0 1 50%;
 	}
 	
+	.dati-tracciato{
+  		font-size: 1.20em;
+	}
+	
 	.title {
 		color: #dd3333;
 	}
@@ -199,7 +203,7 @@ get_header();
 
 		                <div class="content-here">
 		                	<hr />
-		                	<h3 class="desc-title"><?php _e( 'Descrizione e tracciato', 'sydney-child' );?></h3>
+		                	<h3 class="desc-title"><?php _e( 'Descrizione', 'sydney-child' );?></h3>
 		                	<?php  the_content();  ?>
 						</div>
 
@@ -215,10 +219,12 @@ get_header();
 							    while ( have_rows('tracciato') ) : the_row();
 							
 							        // display a sub field value
+							        ?><p class="dati-tracciato"><?php
 							        the_sub_field('step');
 							        echo " - ";
 							        the_sub_field('stepdesc');
-							        echo '<br />';
+							        //echo '<br />';
+							        ?></p><?php
 							
 							    endwhile;
 							
