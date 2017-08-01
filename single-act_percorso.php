@@ -53,6 +53,10 @@
   		border-right: 2px solid #dd3333;
 	}
 	
+		.thumb {
+			padding: 10px;
+		}
+	
 	@media all and (max-device-width: 480px) and (orientation: portrait) {
     
 	    .flex-container {
@@ -114,6 +118,26 @@ get_header();
 	                	<div class="foto">
 							<div>
 								<h3><?php _e( 'Immagini del percorso', 'sydney-child' );?></h3>
+							</div>
+							<div>
+							<br/>
+							<br/>
+							<br/>
+								<?php 
+	
+								$images = get_field('immagini');
+								
+								if( $images ): ?>
+								    <!--  <ul> -->
+								        <?php foreach( $images as $image ): ?>
+								           <!-- <li> -->
+								                <a href="<?php echo $image['url']; ?>">
+								                     <img class="thumb" src="<?php echo $image['sizes']['thumbnail']; ?>" title="<?php echo $image['caption']; ?>" alt="<?php echo $image['alt']; ?>" />
+								                </a>
+								           <!-- </li> -->
+								        <?php endforeach; ?>
+								    <!--</ul> -->
+								<?php endif; ?>
 							</div>
 							<div class="end-box"></div>
 						</div>
