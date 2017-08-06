@@ -39,6 +39,7 @@
 			 rel="bookmark" title="Permanent Link to <?php the_title_attribute();
 			 ?>"><?php the_title(); ?></a></span>
 			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a>
+			(<?php the_field('difficolta'); ?> - <?php the_field('km'); ?> km - tempo indicativo <?php the_field('tempo_medio_ore'); ?>h <?php the_field('tempo_medio_minuti'); ?>')
 			<?php the_excerpt() ?>
 			</div>
 	
