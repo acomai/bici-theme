@@ -191,10 +191,10 @@
 							<h3><i class="fa fa-bus"></i> <?php _e( 'Arrivare a ', 'sydney-child' );?> <?php the_title(); ?></h3>
 							<p><?php 
 							// test per provare una limitazione di funzionalità in base al ruolo utente
-							if( current_user_can('edit_posts') ) {
+							//if( current_user_can('edit_posts') ) {
 								// true if user can edit posts
 								the_field('arrivare');
-							}
+							//}
 							
 							 ?></p>
 						 </div>
