@@ -38,7 +38,7 @@ get_header(); ?>
 		   						 <?php 
 						   						  // visualizza icone appropriate al tipo_percorso
 						   						  $tipo = get_field('tipo_percorso', $p->ID);
-						   						  if ( $tipo == 'bici' ) {
+						   						  if ( $tipo == 'bici' or $tipo == 'bike') {
 						   						  	echo '<i class="fa fa-bicycle fa-2x"></i>';
 						   						  } else {
 						   						  	echo '<i class="fa fa-blind fa-2x"></i>';

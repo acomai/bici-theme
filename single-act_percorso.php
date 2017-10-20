@@ -133,7 +133,8 @@ get_header();
 								        <?php foreach( $images as $image ): ?>
 								           <!-- <li> -->
 								                <a href="<?php echo $image['url']; ?>">
-								                     <img class="thumb" src="<?php echo $image['sizes']['thumbnail']; ?>" title="<?php echo $image['caption']; ?>" alt="<?php echo $image['alt']; ?>" />
+								                     <img class="thumb" src="<?php echo $image['sizes']['thumbnail']; ?>" title="<?php echo $image['caption']; ?>"  />
+
 								                </a>
 								           <!-- </li> -->
 								        <?php endforeach; ?>
