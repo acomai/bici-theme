@@ -112,7 +112,7 @@
 			                <div class="end-box"></div>
 		                </div>
 	                
-	                <!-- Link ai percorsi del nodo -->
+	                <!-- Link ai percorsi in bici del nodo -->
 					<div class="percorsi-bici">
 						<div>
 							<h3><i class="fa fa-bicycle"></i> <?php _e( 'Percorsi in bici', 'sydney-child' );?></h3>
@@ -139,7 +139,7 @@
 						
 	                </div>
 	                
-	                <!-- Link ai percorsi del nodo -->
+	                <!-- Link ai percorsi a piedi del nodo -->
 					<div class="percorsi-piedi">
 						<div>
 							<h3><i class="fa fa-blind"></i> <?php _e( 'Percorsi a piedi', 'sydney-child' );?> </h3>

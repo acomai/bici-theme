@@ -11,7 +11,7 @@
     	flex-wrap: wrap;
 	}
 	
-	.percorsi, .centri, .img-block, .wrap-text-image, .itinerari {
+	.percorsi, .percorsi-bici, .percorsi-piedi, .centri, .img-block, .wrap-text-image, .itinerari {
 		padding: 30px 0px 0px 20px;
 		display: flex;
   		justify-content: space-between;
@@ -27,7 +27,7 @@
 
 	
 	
-	.img-block, .centri, .percorsi, .itinerari {
+	.img-block, .centri, .percorsi, .percorsi-bici, .percorsi-piedi, .itinerari {
   		flex: 0 1 50%;
 	}
 	
@@ -47,7 +47,7 @@
   		margin-right: 1em;
 	}
 	
-	.percorsi, .mappa, .meteo, .desc, .wrap-text-image {
+	.percorsi, .percorsi-bici, .percorsi-piedi, .mappa, .meteo, .desc, .wrap-text-image {
   		/* background-color: lightyellow; */
 	}
 	
@@ -135,31 +135,25 @@
 						</div>
 						<div class="end-box"></div>
 					</div>
-					
-						                <!-- Link ai percorsi dell'area -->
-					<div class="percorsi">
+
+	                <!-- Link ai percorsi in bici dell'area -->
+					<div class="percorsi-bici">
 						<div>
-							<h3><i class="fa fa-map-signs"></i> <?php _e( 'Percorsi', 'sydney-child' );?></h3>
+							<h3><i class="fa fa-bicycle"></i> <?php _e( 'Percorsi in bici', 'sydney-child' );?></h3>
 							<?php 
 								$posts = get_field('area_percorsi');
 								if( $posts ): ?>
 									<ul>
-									<?php foreach( $posts as $p ): // variable must NOT be called $post (IMPORTANT) ?>
-				   						 <li>
-					   						 <?php 
-						   						  // test da implementare per visualizzare icone appropriate al tipo_percorso
-						   						  // ed alla difficoltà
-						   						  $tipo = get_field('tipo_percorso', $p->ID);
-						   						  if ( $tipo == 'bici' || $tipo == 'bike') {
-						   						  	echo '<i class="fa fa-bicycle fa-2x"></i>';
-						   						  } else {
-						   						  	echo '<i class="fa fa-blind fa-2x"></i>';
-						   						  }
-					   						  ?>
-					   						 <a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a>
-					   						  - km: <?php echo the_field('km', $p->ID); ?> - 
-					   						  <?php  echo the_field('difficolta', $p->ID); ?>
-				   						 </li>
+									<?php foreach( $posts as $p ): // variable must NOT be called $post (IMPORTANT)
+				   						  $tipo = get_field('tipo_percorso', $p->ID);
+						   					if ( $tipo == 'bici' || $tipo == 'bike'):  ?>
+						   						 <li>
+							   						 <a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a>
+							   						  - km: <?php echo the_field('km', $p->ID); ?> - 
+							   						  <?php  echo the_field('difficolta', $p->ID); ?>				   						  
+							   						  
+						   						 </li>
+						   					<?php endif; ?>
 									<?php endforeach; ?>
 									</ul>
 							<?php endif; ?>
@@ -168,6 +162,35 @@
 						<div class="end-box"></div>
 						
 	                </div>
+	                
+	                <!-- Link ai percorsi a piedi dell'area -->
+					<div class="percorsi-piedi">
+						<div>
+							<h3><i class="fa fa-blind"></i> <?php _e( 'Percorsi a piedi', 'sydney-child' );?> </h3>
+							<?php 
+								$posts = get_field('area_percorsi');
+								if( $posts ): ?>
+									<ul>
+									<?php foreach( $posts as $p ): // variable must NOT be called $post (IMPORTANT)
+				   						  $tipo = get_field('tipo_percorso', $p->ID);
+						   					if ( $tipo != 'bici' && $tipo != 'bike'):  ?>
+						   						 <li>
+							   						 <a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a>
+							   						  - km: <?php echo the_field('km', $p->ID); ?> - 
+							   						  <?php  echo the_field('difficolta', $p->ID); ?>				   						  
+							   						  
+						   						 </li>
+						   					<?php endif; ?>
+									<?php endforeach; ?>
+									</ul>
+							<?php endif; ?>
+						</div>
+						
+						<div class="end-box"></div>
+						
+	                </div>
+					
+
 	                
 	                <div class="itinerari">
 						<div>

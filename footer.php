@@ -4,7 +4,7 @@
  *
  * Contains the closing of the #content div and all content after
  *
- * @package Sydney
+ * @package Sydney - class="site-footer" role="contentinfo"
  */
 ?>
 			</div>
@@ -19,12 +19,9 @@
 
     <a class="go-top"><i class="fa fa-angle-up"></i></a>
 		
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info container">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'sydney' ) ); ?>"><?php printf( __( 'Prototipo in %s', 'sydney' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Tema child: %2$s by %1$s.', 'sydney' ), 'aThemes', '<a href="https://athemes.com/theme/sydney" rel="designer">Sydney</a>' ); ?>
-		</div><!-- .site-info -->
+	<footer id="colophon" class="site-footer" role="contentinfo" >
+		<span style="text-align:center;">Piemonte Slow è un progetto di Adriano Comai. Contatti e segnalazioni: <a href="mailto:info@piemonteslow.it">info@piemonteslow.it</a></span>
+		
 	</footer><!-- #colophon -->
 
 	<?php do_action('sydney_after_footer'); ?>
