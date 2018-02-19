@@ -20,7 +20,7 @@
     <a class="go-top"><i class="fa fa-angle-up"></i></a>
 		
 	<footer id="colophon" class="site-footer" role="contentinfo" >
-		<span style="text-align:center;">Piemonte Slow è un progetto di Adriano Comai. Contatti e segnalazioni: <a href="mailto:info@piemonteslow.it">info@piemonteslow.it</a></span>
+		<span style="text-align:center;">2018 Piemonte Slow. Contatti e segnalazioni: <a href="mailto:info@piemonteslow.it">info@piemonteslow.it</a></span>
 		
 	</footer><!-- #colophon -->
 
