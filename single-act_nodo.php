@@ -37,7 +37,7 @@
 		height: 20px;
 	}
 	
-	.servizi, .img-block, .itinerari, .arrivare, .percorsi-piedi, .percorsi-bici {
+	.servizi, .img-block, .itinerari, .arrivare, .percorsi-piedi, .percorsi-bici, .mappa {
   		flex: 0 1 50%;
 	}
 	
@@ -184,6 +184,15 @@
 						
 					</div>
 					
+					<div class="img-block meteo">
+	                	<div>
+			                <div class="img">
+								<p><?php the_field('meteo'); ?></p>
+			                </div>
+		                </div>
+		                <!--  <div class="end-box"></div>-->
+	                </div>
+					
 					<div class="vuoto">
 						<p>  </p>
 					</div>
@@ -241,33 +250,6 @@
 						<div class="end-box"></div>
 					</div>
 				
-                
-                <!-- Link ai servizi acquistabili come 'product' tramite Woocommerce -->				
-	                
-	                <div class="servizi">
-						<div>
-							<h3><i class="fa fa-tags"></i> <?php _e( 'Servizi a ', 'sydney-child' );?> <?php the_title(); ?></h3>
-							<?php 
-								$posts = get_field('nodo_servizi');
-								if( $posts ): ?>
-									<ul>
-									<?php foreach( $posts as $p ): // variable must NOT be called $post (IMPORTANT) ?>
-				   						 <li><a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a> <?php echo the_field('km', $p->ID); ?></li>
-									<?php endforeach; ?>
-									</ul>
-							<?php endif; ?>
-						</div>
-						<div class="end-box"></div>
-	                </div>
-                
-	                <div class="img-block meteo">
-	                	<div>
-			                <div class="img">
-								<p><?php the_field('meteo'); ?></p>
-			                </div>
-		                </div>
-		                <!--  <div class="end-box"></div>-->
-	                </div>
 	                
                 </div>
                 
