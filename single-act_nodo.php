@@ -37,7 +37,7 @@
 		height: 20px;
 	}
 	
-	.servizi, .img-block, .itinerari, .arrivare, .percorsi-piedi, .percorsi-bici, .mappa {
+	.img-block, .itinerari, .arrivare, .percorsi-piedi, .percorsi-bici, .mappa {
   		flex: 0 1 50%;
 	}
 	
@@ -100,17 +100,24 @@
                 <h1 class="title"><?php the_title(); ?></h1>
                 </div>
                 <div class="flex-container">
-		                <div class="dati-base">
-		                	<div>
-			                	<div>
-					                <p><?php _e( 'Provincia', 'sydney-child' );?>: <strong><?php the_field('provincia'); ?></strong> - 
-					                <?php _e( 'Altitudine', 'sydney-child' );?>: <strong><?php the_field('altitudine'); ?></strong> m. 
-					                - <?php _e( 'Abitanti', 'sydney-child' );?> <strong><?php the_field('abitanti'); ?></strong></p>
-					                <p><?php _e( 'Informazioni turistiche', 'sydney-child' );?>: <?php echo get_field('centro_servizi'); ?></p>
-				                </div>
-			                </div>
-			                <div class="end-box"></div>
-		                </div>
+
+              		<div class="wrap-text-image">
+                		<div>
+		                	<div class="img-foto">
+				                <?php
+				                	// mostra immagine rappresentativa del nodo, se esiste
+				                	if ( has_post_thumbnail() ) {
+										the_post_thumbnail();
+									} 
+									
+								?>
+							</div>
+							<div class="content-here desc">
+			                	<?php  the_content();  ?>
+							</div>
+						</div>
+						<div class="end-box"></div>
+					</div>		                
 	                
 	                <!-- Link ai percorsi in bici del nodo -->
 					<div class="percorsi-bici">
@@ -184,36 +191,43 @@
 						
 					</div>
 					
-					<div class="img-block meteo">
-	                	<div>
-			                <div class="img">
-								<p><?php the_field('meteo'); ?></p>
-			                </div>
-		                </div>
-		                <!--  <div class="end-box"></div>-->
-	                </div>
+	                
+	                <div class="img-block mappa">
+						<div class="img" >
+							<?php the_field('mappa_nodo'); ?>
+						</div>
+						<!--   <div class="end-box"></div> -->
+					</div>
 					
 					<div class="vuoto">
 						<p>  </p>
 					</div>
 	                
-                	<div class="wrap-text-image">
-                		<div>
-		                	<div class="img-foto">
-				                <?php
-				                	// mostra immagine rappresentativa del nodo, se esiste
-				                	if ( has_post_thumbnail() ) {
-										the_post_thumbnail();
-									} 
-									
-								?>
-							</div>
-							<div class="content-here desc">
-			                	<?php  the_content();  ?>
-							</div>
-						</div>
-						<div class="end-box"></div>
+	                <div class="dati-base">
+		                	<div>
+			                	<div>
+					                <p><?php _e( 'Provincia', 'sydney-child' );?>: <strong><?php the_field('provincia'); ?></strong> - 
+					                <?php _e( 'Altitudine', 'sydney-child' );?>: <strong><?php the_field('altitudine'); ?></strong> m. 
+					                - <?php _e( 'Abitanti', 'sydney-child' );?> <strong><?php the_field('abitanti'); ?></strong></p>
+					                <p><?php _e( 'Informazioni turistiche', 'sydney-child' );?>: <?php echo get_field('centro_servizi'); ?></p>
+				                </div>
+			                </div>
+			            <div class="end-box"></div>
+		           	</div>
+		           	
+		           	<div class="vuoto">
+						<p>  </p>
 					</div>
+	                
+					<div class="servizi">
+						<div>
+							<h3><i class="fa fa-wrench"></i> <?php _e( 'Associazioni e servizi per il turismo slow', 'sydney-child' );?></h3>
+							<p><?php 
+								the_field('associazioni_servizi');						
+							 ?></p>
+						</div>
+						<!-- <div class="end-box"></div> -->
+	                </div>  
 				
 					<div class="arrivare">
 						<div>
@@ -230,12 +244,14 @@
 						 <div class="end-box"></div>
 	                </div>
 	                
-	                <div class="img-block mappa">
-						<div class="img" >
-							<?php the_field('mappa_nodo'); ?>
-						</div>
-						<!--   <div class="end-box"></div> -->
-					</div>
+					<div class="img-block meteo">
+	                	<div>
+			                <div class="img">
+								<p><?php the_field('meteo'); ?></p>
+			                </div>
+		                </div>
+		                <!--  <div class="end-box"></div>-->
+	                </div>
 					
 	                
 	                <div class="vuoto">
