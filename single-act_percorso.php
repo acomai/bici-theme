@@ -101,13 +101,15 @@ get_header();
 	                		<h3><?php _e( 'Dati', 'sydney-child' );?>:</h3>
 		                		<p><?php _e( 'Tipo percorso', 'sydney-child' );?>: <strong><?php the_field('tipo_percorso'); ?></strong></p>
 				                <p><?php _e( 'Lunghezza', 'sydney-child' );?>: <strong><?php the_field('km'); ?> km</strong></p>
-				                <p><?php _e( 'Difficoltà', 'sydney-child' );?>: <strong><?php the_field('difficolta'); ?></strong></p>
+				                <p><?php _e( 'Livello difficoltà', 'sydney-child' );?> (<a href="https://www.piemonteslow.it/classificazione-dei-percorsi/">info</a>): <strong><?php the_field('difficolta'); ?></strong></p>
+				                <p><?php _e( 'Livello sicurezza', 'sydney-child' );?> (<a href="https://www.piemonteslow.it/classificazione-dei-percorsi/">info</a>): <strong><?php the_field('sicurezza'); ?></strong></p>
 				                <p><?php _e( 'Tempo medio', 'sydney-child' );?>: <strong><?php the_field('tempo_medio_ore'); ?>h <?php the_field('tempo_medio_minuti'); ?>'</strong></p> 
 				                <p><?php _e( 'Dislivello in salita', 'sydney-child' );?>: <strong><?php the_field('dislivello_salita'); ?> m</strong></p>
 				                <p><?php _e( 'Dislivello in discesa', 'sydney-child' );?>: <strong><?php the_field('dislivello_discesa'); ?> m</strong></p>
 				                <p><?php _e( 'Sterrato', 'sydney-child' );?>: <strong><?php the_field('sterrato_perc'); ?> %</strong></p> 
 								<p><?php _e( 'Fontanelle', 'sydney-child' );?>: <strong><?php the_field('fontanelle'); ?></strong></p>
 								<p><?php _e( 'Segnaletica', 'sydney-child' );?>: <strong><?php the_field('segnaletica'); ?></strong></p>
+								
 							</div>
 							<div class="end-box"></div>
 	                	</div>
